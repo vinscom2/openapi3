@@ -9,6 +9,16 @@
     "/broadcast/{topicName}": {
       "post": {
         "operationId": "broadcastMessage",
+        "parameters": [
+          {
+            "name": "topicName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success Response",
