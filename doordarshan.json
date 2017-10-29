@@ -8,6 +8,7 @@
   "paths": {
     "/broadcast/{topicName}": {
       "post": {
+        "operationId": "broadcastMessage",
         "responses": {
           "200": {}
         },
