@@ -8,7 +8,7 @@
   "paths": {
     "/broadcast/{topicName}": {
       "post": {
-        "operationId": "broadcastMessage",
+        "operationId": "API_BROADCAST_SERVICE",
         "parameters": [
           {
             "name": "topicName",
