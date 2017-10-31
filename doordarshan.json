@@ -8,6 +8,8 @@
   "paths": {
     "/broadcast/{topicName}": {
       "post": {
+        "summary": "Send message to all subscriber of topicName",
+        "description": "Send message to all subscriber of topicName",
         "operationId": "API_BROADCAST_SERVICE",
         "parameters": [
           {
@@ -46,12 +48,41 @@
         {
           "name": "topicName",
           "in": "path",
+          "description": "Name of topic on which to broadcast message",
           "required": true,
           "schema": {
             "type": "string"
           }
         }
       ]
+    },
+    "/task": {
+      "post": {
+        "summary": "Send task for processing",
+        "description": "Send task to one of the clients for processing and get back processed result. Only client type can be defined, and system will send message to any client of given type. There is not guarantee that message will be processed. But, in any scenario, request will return with 200 or 400 response.\nConsume can make multiple sequential and parallel request to increase reliability (It is recommended to keep number of request to minimum). ",
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemastaskMessage"
+              }
+            }
+          },
+          "required": true
+        }
+      }
     }
   },
   "components": {
@@ -60,6 +91,13 @@
         "title": "Root Type for broadcastMessage",
         "description": "The root of the broadcastMessage type's schema.",
         "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
+          }
+        }
+      },
+      "taskMessage": {
         "properties": {
           "data": {
             "type": "string"
