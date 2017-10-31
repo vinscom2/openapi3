@@ -6,11 +6,11 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/broadcast/{topicName}": {
+    "/v1/broadcast/{topicName}": {
       "post": {
         "summary": "Send message to all subscriber of topicName",
         "description": "Send message to all subscriber of topicName",
-        "operationId": "API_BROADCAST_SERVICE",
+        "operationId": "API_V1_BROADCAST_SERVICE",
         "parameters": [
           {
             "name": "topicName",
@@ -56,10 +56,11 @@
         }
       ]
     },
-    "/task": {
+    "/v1/task": {
       "post": {
         "summary": "Send task for processing",
         "description": "Send task to one of the clients for processing and get back processed result. Only client type can be defined, and system will send message to any client of given type. There is not guarantee that message will be processed. But, in any scenario, request will return with 200 or 400 response.\nConsume can make multiple sequential and parallel request to increase reliability (It is recommended to keep number of request to minimum). ",
+        "operationId": "API_V1_TASK_SERVICE",
         "responses": {
           "200": {
             "description": "success",
