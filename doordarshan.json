@@ -91,6 +91,7 @@
         "operationId": "API_V1_AUTHENTICATION_SERVICE",
         "responses": {
           "200": {
+            "description": "success",
             "content": {
               "application/json": {
                 "schema": {
