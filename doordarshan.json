@@ -84,6 +84,31 @@
           "required": true
         }
       }
+    },
+    "/v1/auth": {
+      "post": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemasauthenticationResponseMessage"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemasauthenticationRequestMessage"
+              }
+            }
+          },
+          "required": true
+        }
+      }
     }
   },
   "components": {
@@ -101,6 +126,23 @@
       "taskMessage": {
         "properties": {
           "data": {
+            "type": "string"
+          }
+        }
+      },
+      "authenticationRequestMessage": {
+        "properties": {
+          "applicationId": {
+            "type": "string"
+          },
+          "secret": {
+            "type": "string"
+          }
+        }
+      },
+      "authenticationResponseMessage": {
+        "properties": {
+          "token": {
             "type": "string"
           }
         }
