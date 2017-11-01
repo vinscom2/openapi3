@@ -87,6 +87,7 @@
     },
     "/v1/auth": {
       "post": {
+        "description": "Generate auth token",
         "operationId": "API_V1_AUTHENTICATION_SERVICE",
         "responses": {
           "200": {
