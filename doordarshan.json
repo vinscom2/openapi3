@@ -87,6 +87,7 @@
     },
     "/v1/auth": {
       "post": {
+        "operationId": "API_V1_AUTHENTICATION_SERVICE",
         "responses": {
           "200": {
             "content": {
