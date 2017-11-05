@@ -6,11 +6,12 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/v1/broadcast/{topicName}": {
+    "/broadcast/{topicName}": {
       "post": {
         "summary": "Send message to all subscriber of topicName",
         "description": "Send message to all subscriber of topicName",
         "operationId": "API_V1_BROADCAST_SERVICE",
+        "security": [{"jwt_auth":[]}],
         "parameters": [
           {
             "name": "topicName",
@@ -56,11 +57,12 @@
         }
       ]
     },
-    "/v1/task": {
+    "/task": {
       "post": {
         "summary": "Send task for processing",
         "description": "Send task to one of the clients for processing and get back processed result. Only client type can be defined, and system will send message to any client of given type. There is not guarantee that message will be processed. But, in any scenario, request will return with 200 or 400 response.\nConsume can make multiple sequential and parallel request to increase reliability (It is recommended to keep number of request to minimum). ",
         "operationId": "API_V1_TASK_SERVICE",
+        "security": [{"jwt_auth":[]}],
         "responses": {
           "200": {
             "description": "success",
@@ -85,7 +87,7 @@
         }
       }
     },
-    "/v1/auth": {
+    "/auth": {
       "post": {
         "description": "Generate auth token",
         "operationId": "API_V1_AUTHENTICATION_SERVICE",
@@ -156,19 +158,6 @@
         "type": "http",
         "scheme": "Bearer",
         "bearerFormat": "JWT"
-      },
-      "openid": {
-        "type": "oauth2",
-        "flows": {
-          "authorizationCode": {
-            "authorizationUrl": "https://openid.erail.in/auth/realms/APIGateway/protocol/openid-connect/auth",
-            "tokenUrl": "https://openid.erail.in/auth/realms/APIGateway/protocol/openid-connect/token",
-            "refreshUrl": "https://openid.erail.in/auth/realms/APIGateway/protocol/openid-connect/token",
-            "scopes": {
-              "": ""
-            }
-          }
-        }
       }
     }
   }
