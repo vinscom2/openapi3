@@ -156,6 +156,19 @@
         "type": "http",
         "scheme": "Bearer",
         "bearerFormat": "JWT"
+      },
+      "openid": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://openid.erail.in/auth/realms/APIGateway/protocol/openid-connect/auth",
+            "tokenUrl": "https://openid.erail.in/auth/realms/APIGateway/protocol/openid-connect/token",
+            "refreshUrl": "https://openid.erail.in/auth/realms/APIGateway/protocol/openid-connect/token",
+            "scopes": {
+              "": ""
+            }
+          }
+        }
       }
     }
   }
