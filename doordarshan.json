@@ -11,6 +11,7 @@
         "summary": "Send message to all subscriber of topicName",
         "description": "Send message to all subscriber of topicName",
         "operationId": "API_V1_BROADCAST_SERVICE",
+        "security": [{"oauth2":[]}],
         "parameters": [
           {
             "name": "topicName",
@@ -33,11 +34,6 @@
             }
           }
         },
-        "security": [
-          {
-            "jwt_auth": []
-          }
-        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -66,6 +62,13 @@
         "summary": "Send task for processing",
         "description": "Send task to one of the clients for processing and get back processed result. Only client type can be defined, and system will send message to any client of given type. There is not guarantee that message will be processed. But, in any scenario, request will return with 200 or 400 response.\nConsume can make multiple sequential and parallel request to increase reliability (It is recommended to keep number of request to minimum). ",
         "operationId": "API_V1_TASK_SERVICE",
+        "security": [
+          {
+            "oauth2":[
+              "API_V1_TASK_SERVICE"
+            ]
+          }
+        ],
         "responses": {
           "200": {
             "description": "success",
@@ -78,11 +81,6 @@
             }
           }
         },
-        "security": [
-          {
-            "jwt_auth": []
-          }
-        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -162,7 +160,7 @@
       }
     },
     "securitySchemes": {
-      "jwt_auth": {
+      "oauth2": {
         "type": "http",
         "scheme": "Bearer",
         "bearerFormat": "OAuth"
