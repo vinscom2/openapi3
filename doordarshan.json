@@ -169,6 +169,8 @@
         "flows": {
           "authorizationCode": {
             "authorizationUrl": "http://openidserver:8080/auth",
+            "tokenUrl": "http://openidserver:8080/auth",
+            "refreshUrl": "http://openidserver:8080/auth",
             "scopes": {
               "dfsdf": ""
             }
