@@ -124,6 +124,45 @@
           "required": true
         }
       }
+    },
+    "/chat/session/active": {
+      "get": {
+        "summary": "Return all active sessions",
+        "description": "Only return sessions only associated to current user. Session will also contain session context information",
+        "responses": {
+          "200": {
+            "description": "Return all active session",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/chat/session/{sessionId}/messages": {
+      "get": {
+        "summary": "Get all session messages",
+        "description": "Return all messages associated with session",
+        "responses": {
+          "200": {
+            "description": "JSON Message contain all messages",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "sessionId",
+          "in": "path",
+          "description": "Unique Session ID",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
     }
   },
   "components": {
